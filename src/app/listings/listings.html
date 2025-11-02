@@ -1,0 +1,54 @@
+<div class="container text-center">
+    <br>
+    <br>
+    <h1>Annonces d'envoi de colis</h1>
+    <br>
+    <div class="container border rounded p-4" style="width: 900px;">
+        <form class="row row-cols-lg-auto g-3 align-items-center justify-content-center">
+            <div class="col-12">
+                <label class="visually-hidden" for="inlineFormInputGroupUsername">De</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="De" style="width: 350px;">
+                </div>
+            </div>
+
+            <div class="col-12">
+                <label class="visually-hidden" for="inlineFormInputGroupUsername">Vers</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Vers" style="width: 350px;">
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+            </div>
+        </form>
+    </div>
+    <br>
+
+    @for (listing of listings; track listing.id) {
+    <div class="container mb-3" style="width: 900px;">
+        <div class="row">
+            <div class="col align-items-center text-start pt-4 m-0">
+                <h5>{{listing.transporter.firstName}}</h5>
+                <p>Va au {{listing.destCountry}} le <span style="color: white; background-color: rgb(99, 99, 99); padding: 2px;">15.11.2025</span></p>
+            </div>
+            <div class="col card" style="max-width: 540px;">
+                <div class="row">
+                    <div class="col-md-4 border-end">
+                        <img src="" class="img-fluid rounded-start border" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body text-start">
+                            <h5 class="card-title">{{listing.originCity}} vers {{listing.destCity}}</h5>
+                            <p class="card-text">{{listing.maxWeightKg}} Kg disponible - 10€ par Kilo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    } @empty {
+        <h3>Aucune annonce pour le moment!</h3>
+    }
+</div>
